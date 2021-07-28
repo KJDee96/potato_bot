@@ -1,0 +1,13 @@
+[Unit]
+Description=good potato bot
+After=network.target
+
+[Service]
+User=root
+Group=www-data
+WorkingDirectory=/home/pi/Dev/potato_bot
+Environment="PATH=/home/pi/Dev/potato_bot/venv/bin"
+ExecStart=/var/www/cloud-computing/venv/bin/python3 main.py
+
+[Install]
+WantedBy=multi-user.target
