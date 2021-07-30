@@ -1,10 +1,12 @@
 from pathlib import Path
 from discord.ext import commands
 from discord_slash import SlashCommand
-from bot.config import guild_ids
+from bot.config import token
 
-bot = commands.Bot(command_prefix="")
+bot = commands.Bot(command_prefix=";")
 slash = SlashCommand(bot, sync_commands=True)  # Declares slash commands through the client.
+
+emoji_star = '<:star:869923498410250320>'
 
 
 def extensions():

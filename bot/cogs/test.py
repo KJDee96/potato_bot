@@ -2,8 +2,8 @@ import discord
 from discord.ext import commands
 from discord_slash import cog_ext, SlashContext
 from discord_slash.utils.manage_commands import create_option
-
-from bot import guild_ids
+from bot import emoji_star
+from bot.config import guild_ids
 
 
 class Test(commands.Cog):
@@ -22,14 +22,14 @@ class Test(commands.Cog):
                        description="Potato say.",
                        options=[
                            create_option(
-                               name="optone",
-                               description="This is the first option we have.",
+                               name="sentence",
+                               description="What potato bot should say.",
                                option_type=3,
-                               required=False
+                               required=True
                            )
                        ])
-    async def _say(self, ctx: SlashContext, optone: str):
-        await ctx.send(content=f"Potato say {optone} <:star:869923498410250320>!")
+    async def _say(self, ctx: SlashContext, sentence: str):
+        await ctx.send(content=f"Potato say {sentence} {emoji_star}!")
 
 
 def setup(bot):
